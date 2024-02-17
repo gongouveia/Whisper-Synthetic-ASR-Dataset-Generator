@@ -19,7 +19,7 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
     ```bash
     pip install PyQt5 qdarktheme faster-whisper sounddevice wavio
     ```
- or 
+     or 
     ```bash
      conda install --file requirements.txt
      ```
