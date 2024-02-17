@@ -25,7 +25,7 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
      ```
 
 ## Usage
-1. Launch the application by running `python speech_gen.py --project project_name`.
+1. Launch the application by running `python speech_gen.py --project project_name` --lang <default:'en','multi'>   --mode <default:'auto', 'light', 'dark'>,  
 2. Configure audio capture parameters such as sample rate and duration.
 3. Choose whether to transcribe the captured audio.
 4. Click on "Capture Audio" to start recording.
