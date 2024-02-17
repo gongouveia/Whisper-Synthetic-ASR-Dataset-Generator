@@ -19,6 +19,10 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
     ```bash
     pip install PyQt5 qdarktheme faster-whisper sounddevice wavio
     ```
+ or 
+    ```bash
+     conda install --file requirements.txt
+     ```
 
 ## Usage
 1. Launch the application by running `python speech_gen.py --project project_name`.
