@@ -17,7 +17,7 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
     ```
 2. Install dependencies:
     ```bash
-    pip install PyQt5 qdarktheme
+    pip install PyQt5 qdarktheme faster-whisper sounddevice wavio
     ```
 
 ## Usage
