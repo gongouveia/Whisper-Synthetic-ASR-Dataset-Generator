@@ -21,12 +21,11 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
     ```
 
 ## Usage
-1. Launch the application by running `main.py`.
-2. Configure audio parameters such as sample rate and duration.
+1. Launch the application by running `python speech_gen.py --project project_name`.
+2. Configure audio capture parameters such as sample rate and duration.
 3. Choose whether to transcribe the captured audio.
 4. Click on "Capture Audio" to start recording.
 5. View and manage the dataset using the provided options.
-6. Export the dataset as needed.
 
 ## Configuration
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
@@ -37,6 +36,11 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
 ## Dataset Management
 - **View Dataset**: Opens a new window to view the generated dataset.
 - **Delete Entry**: Deletes the last recorded entry from the dataset.
+
+
+## Exporting Dataset as Hugging Face Audio Dataset
+To export the final dataset as a Hugging Face audio dataset, use the Command-Line Interface (CLI) provided.
+    
 
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
