@@ -8,7 +8,7 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
 - **Transcription**: Provides the option to transcribe captured audio into text.
 - **Audio Enhancement**: Offers audio enhancement features for better quality recordings.
 - **Dataset Management**: Enables users to view, delete, and manage entries in the generated dataset.
-- **Export**: Allows exporting of the dataset for further processing or integration with other applications.
+- **Export**: Allows exporting of the dataset for further processing or Hugging Face :hugs:.
 
 ## Installation
 1. Clone the repository:
