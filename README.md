@@ -21,7 +21,7 @@ ReadMe update with UI screenshot and video
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your/repository.git
+    https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
 2. Install dependencies:
     ```bash
