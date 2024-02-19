@@ -60,6 +60,5 @@ Contributions to this project are welcome! If you'd like to contribute, please f
 This project is licensed under the [MIT License](LICENSE).
 
 ## Author
-[Your Name or Organization]
 
-For any inquiries, please contact [gongou00@gmail.com].
+For any inquiries or collaboration, please contact [gongou00@gmail.com].
