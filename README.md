@@ -1,3 +1,5 @@
+project under construction. First release early March 2024 🚧👷‍♂️
+
 # Synthetic Speech Dataset Generator (SpeechGen)
 
 With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩:. 
@@ -35,10 +37,12 @@ ReadMe update with UI screenshot and video
 ## Usage
 1. Launch the application by running `python speech_gen.py --project project_name --lang <default:'en','multi'> --mode <default:'auto', 'light', 'dark'>,  `
 2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
-3. Choose whether to transcribe the captured audio.
+3. Choose whether to transcribe audio as it capture is complete.
 4. Click on "Capture Audio" to start recording.
 5. View and manage the dataset using the provided options.
-
+# Notes
+    In the case that the Idiom argument is set to ('en') the langauges dropdown menu is not available. 
+    Case option 3. is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset, pasting audios in the `/Audios` uder your desired project.
 ## Configuration
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
 - **Audio Duration**: Define the duration of audio samples to capture (in milliseconds).
@@ -51,7 +55,7 @@ ReadMe update with UI screenshot and video
 
 
 ## Exporting Dataset as Hugging Face Audio Dataset
-To export the final dataset as a Hugging Face audio dataset, use the Command-Line Interface (CLI) provided.
+To export the final dataset as a Hugging Face 🤗 Datasets, use the Command-Line Interface (CLI) provided.
 [https://huggingface.co/docs/datasets/audio_dataset]
 
 
