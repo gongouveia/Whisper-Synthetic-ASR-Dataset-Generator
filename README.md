@@ -1,6 +1,6 @@
 # Synthetic Speech Dataset Generator (SpeechGen)
 
-With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. Adding labeling metric to each dataset entry, audio sample rate, length, or speaker gender and age, 
+With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. 
 User interface is created using PyQt5 and runs totally local.
 
 
@@ -13,6 +13,10 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
 - **Audio Enhancement**: Offers audio enhancement features for better quality recordings.
 - **Dataset Management**: Enables users to view, delete, and manage entries in the generated dataset.
 - **Export**: Allows exporting of the dataset for further processing or Hugging Face :hugs:.
+
+## Future Releases
+Adding metadata to each dataset entry, audio sample rate, length, or speaker gender and age.
+ReadMe update with UI screenshot and video
 
 ## Installation
 1. Clone the repository:
