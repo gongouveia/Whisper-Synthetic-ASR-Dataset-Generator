@@ -44,7 +44,8 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
 
 ## Exporting Dataset as Hugging Face Audio Dataset
 To export the final dataset as a Hugging Face audio dataset, use the Command-Line Interface (CLI) provided.
-    
+[https://huggingface.co/docs/datasets/audio_dataset]
+
 
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
@@ -53,6 +54,7 @@ Contributions to this project are welcome! If you'd like to contribute, please f
 3. Commit your changes (`git commit -am 'Add some feature'`).
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Create a new Pull Request.
+
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
