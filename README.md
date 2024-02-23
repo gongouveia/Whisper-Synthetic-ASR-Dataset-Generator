@@ -35,7 +35,7 @@ ReadMe update with UI screenshot and video
      ```
 
 ## Usage
-1. Launch the application by running `python speech_gen.py --project project_name --lang <default:'en','multi'> --mode <default:'auto', 'light', 'dark'>,  `
+1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --lang <default:'en','multi'> --mode <default:'auto', 'light', 'dark'>,  `
 2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
 3. Choose whether to transcribe audio as it capture is complete.
 4. Click on "Capture Audio" to start recording.
