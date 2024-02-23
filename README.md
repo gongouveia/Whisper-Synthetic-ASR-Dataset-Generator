@@ -44,13 +44,13 @@ ReadMe update with UI screenshot and video
 In the case that the Idiom argument is set to ('en') the langauges dropdown menu is not available. 
 Case option 3. is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset, pasting audios in the `/Audios` uder your desired project.
 
-# Configuration
+### Configuration
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
 - **Audio Duration**: Define the duration of audio samples to capture (in milliseconds).
 - **Transcribe**: Choose whether to transcribe captured audio (Yes/No).
 - **Audio Enhancement**: Enable or disable audio enhancement features (Yes/No).
 
-# Dataset Management
+### Dataset Management
 - **View Dataset**: Opens a new window to view the generated dataset.
 - **Delete Entry**: Deletes the last recorded entry from the dataset.
 
