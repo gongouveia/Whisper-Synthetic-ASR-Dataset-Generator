@@ -1,4 +1,9 @@
-project under construction. First release early March 2024 🚧👷‍♂️
+Project under construction. First release early March 2024 🚧👷‍♂️
+What is missing:
+- Audio capture is broken (perhaps is my pc audio interface)
+- Transcribing in a different threads
+- Verification and deployment of dataset in Hugging Face
+
 
 # Synthetic Speech Dataset Generator (SpeechGen)
 
