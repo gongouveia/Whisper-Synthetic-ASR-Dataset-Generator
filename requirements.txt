@@ -1,0 +1,9 @@
+python == 3.10.1
+pyqtdarktheme == 2.1.0
+PyQt5
+pyaudio
+sounddevice
+faster-whisper
+torch
+torchaudio
+cudnn
