@@ -35,6 +35,10 @@ class SpeechGeneratorWindow(QWidget):
         self.setFixedSize(650, 500)  # Fixing window size
         self.setWindowIcon(QIcon('Images/fig2.png'))  # Set window icon
 
+        #self.speaker_name_label = QLabel("Speaker Name  ")
+        #self.speaker_name_input = QLineEdit()
+        #self.speaker_name_input.setFixedSize(100, 20)  # Set size of input box
+        #self.speaker_name_input.setText("None")  # Set default value to 5
 
 
         self.audio_rate_label = QLabel("Audio Sample Rate: (KHz)  ")
@@ -45,7 +49,7 @@ class SpeechGeneratorWindow(QWidget):
         self.audio_duration_label = QLabel("Audio Duration: (ms)         ")
         self.audio_duration_input = QLineEdit()
         self.audio_duration_input.setFixedSize(100, 20)  # Set size of input box
-        self.audio_duration_input.setText("1000")  # Set default value to 10
+        self.audio_duration_input.setText("5000")  # Set default value to 10000
 
         self.transcribe_label = QLabel("Transcribe after Record:")
         self.audio_enhancement_label = QLabel("Metadata to Dataset:")
@@ -92,10 +96,16 @@ class SpeechGeneratorWindow(QWidget):
         hbox_led.addWidget(self.led_widget)
         hbox_led.addWidget(self.start_button)
 
-        hbox_audio_rate = QHBoxLayout()
-        hbox_audio_rate.addWidget(self.audio_rate_label)
-        hbox_audio_rate.addWidget(self.audio_rate_input)
-        hbox_audio_rate.addStretch(1)  # Add stretch at the end
+        hbox_audio_speaker = QHBoxLayout()
+        hbox_audio_speaker.addWidget(self.speaker_name_label)
+        hbox_audio_speaker.addWidget(self.speaker_name_input)
+        hbox_audio_speaker.addStret
+
+	    
+        #hbox_audio_rate = QHBoxLayout()
+        #hbox_audio_rate.addWidget(self.audio_rate_label)
+        #hbox_audio_rate.addWidget(self.audio_rate_input)
+        #hbox_audio_rate.addStretch(1)  # Add stretch at the end
 
         hbox_audio_duration = QHBoxLayout()
         hbox_audio_duration.addWidget(self.audio_duration_label)
@@ -114,6 +124,8 @@ class SpeechGeneratorWindow(QWidget):
         hbox_delete.addWidget(self.delete_button)
 
         vbox = QVBoxLayout()
+#    	vbox.addLayout(hbox_audio_speaker)
+
         vbox.addLayout(hbox_audio_rate)
         vbox.addLayout(hbox_audio_duration)
         vbox.addLayout(hbox_transcribe)
