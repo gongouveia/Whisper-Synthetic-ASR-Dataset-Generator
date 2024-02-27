@@ -116,7 +116,7 @@ class NewWindow(QWidget):
                 self.model.removeRow(row)
                 if os.path.exists(row_data[0]):
                     os.remove(row_data[0])
-                if os.path.exists(row_data[0].replace('.wav','.txt')):
+                if os.path.exists(row_data[0].replace('.wav','.txt')):                                                #TODO    .replace('.wav','.txt').replace('/Audios','/Translations' nesta linha tmb
                     os.remove(row_data[0].replace('.wav','.txt').replace('/Audios','/Translations'))
     def saveChanges(self):
         self.saveCSV()
