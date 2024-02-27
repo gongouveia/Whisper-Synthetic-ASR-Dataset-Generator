@@ -34,3 +34,13 @@ def retrieve_config_params(file_path = 'config.json'):
 
 
 
+def updateJsonFile(config_param, updated_value, file_path = 'config.json'):                            #TODO not tested yet, will update speaker name/gender/age if available
+    with open(os.path.join(src, file_path), "r+") as jsonFile:
+        data = json.load(jsonFile)
+        jsonFile.truncate(0)
+        jsonFile.seek(0)
+        data[config_param] = updated_value
+        json.dump(data, jsonFile, indent=4)
+        jsonFile.close()
+
+
