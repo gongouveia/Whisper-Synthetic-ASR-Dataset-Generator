@@ -66,7 +66,7 @@ Case option 3. is disabled, it is possible to transcribe all the captured audios
 To export the final dataset as a Hugging Face 🤗 Datasets, use the Command-Line Interface (CLI) provided.
 [https://huggingface.co/docs/datasets/audio_dataset]
 
-
+You can login in UI providing the  hf token [https://huggingface.co/docs/hub/security-tokens].
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
 1. Fork the repository.
