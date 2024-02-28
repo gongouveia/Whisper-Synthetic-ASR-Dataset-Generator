@@ -27,7 +27,7 @@ Adding metadata to each dataset entry, audio sample rate, length, or speaker gen
 ReadMe update with UI screenshot and video
 
 ## Installation  (Experimenta. Not yet complete, will do Pypi and conda install)
-I suggest that you create and activate a new environment using 'conda' or 'virtenv'
+I suggest that you create and activate a new environment using `conda` or `virtenv`
 1. Clone the repository:
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
