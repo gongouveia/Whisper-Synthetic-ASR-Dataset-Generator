@@ -26,7 +26,7 @@ This application serves as a Synthetic Speech Generator, enabling users to captu
 Adding metadata to each dataset entry, audio sample rate, length, or speaker gender and age.
 ReadMe update with UI screenshot and video
 
-## Installation
+## Installation  (Experimenta. Not yet complete, will do Pypi and conda install)
 1. Clone the repository:
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
