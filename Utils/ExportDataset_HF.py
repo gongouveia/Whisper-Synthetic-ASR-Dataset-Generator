@@ -11,13 +11,6 @@ For now it is exploratory, and checkif fucntions work
 
 """
 
-def split_train_validation_test(train, validation, test):                     #TODO it is still very incomplete, not usre how to do valdiation
-    if train + validation + test == 1:
-        print('it is possible')
-        
-    else:
-        print('split dataset in fodlers')
-
 
 
 def create_fh_audio_dataset(path_to_data):                                   #TODO verify | creates dataset
@@ -33,9 +26,10 @@ def dataset_validator(csv_path):                                             #TO
     print("columns:", len(data[0]))
 
 
+    return True
 
 
-def export_dataset_to_HF_hub(dataset, hf_token):                             #TODO verificar  | installs dependencies if necessary and logs in HF account to export
+def export_dataset_to_HF_hub(dataset,dataset_name='new_dataset', hf_token):                             #TODO verificar  | installs dependencies if necessary and logs in HF account to export
     
     if 'huggingface_hub' not in sys.modules: 
         # os.system('pip install huggingface_hub')
@@ -43,9 +37,13 @@ def export_dataset_to_HF_hub(dataset, hf_token):                             #TO
         print('here')
     else:
         
-        os.system(f'huggingface-cli login --token {hf_token} --add-to-git-credential')
-
-
+        login = os.system(f'huggingface-cli login --token {hf_token} --add-to-git-credential')
+        print(login)
+        repo_create = os.system(f'huggingface-cli repo create {dataset_name} --type dataset')
+        print(repo_create)
+        upload = os.system('huggingface-cli upload'
+        print(upload)
+                  
 def logout():                                                                #TODO logsout account
     res = os.system('huggingface-cli logout')
     print(res)
