@@ -1,8 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QTableView, QPushButton, QMessageBox, QApplication, QHeaderView, QSizePolicy, QHBoxLayout, QTextEdit
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIcon
 import os
 import csv
 
@@ -18,7 +16,8 @@ class NewWindow(QWidget):
         self.table_view = QTableView()
         self.model = QStandardItemModel(self)
         self.table_view.setModel(self.model)
-        self.table_view.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)  # Adjust column widths
+        self.table_view.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)  # Adjust column widths to fill the available space
+        self.table_view.verticalHeader().setVisible(False)  # Hide vertical header
 
         self.loadCSV(file_path)
 
@@ -30,7 +29,7 @@ class NewWindow(QWidget):
         self.save_button.clicked.connect(self.saveChanges)
         self.save_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  # Setting fixed size policy
         
-        self.refresh_button = QPushButton("Refresh")
+        self.refresh_button = QPushButton("Refresh Data View")
         self.refresh_button.clicked.connect(self.refreshCSV)
         self.refresh_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  # Setting fixed size policy
         
@@ -38,12 +37,17 @@ class NewWindow(QWidget):
         self.transcribe_button.clicked.connect(self.transcribeRemainingFiles)
         self.transcribe_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  # Setting fixed size policy
 
+        self.extra_button = QPushButton("Export to Huggingface")
+        self.extra_button.clicked.connect(self.showMessage)
+        self.extra_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  # Setting fixed size policy
+        self.extra_button.setEnabled(False)  # Disable the button initially
 
         # Set the width of all buttons to the width of the widest button
         self.delete_button.setFixedWidth(100)
         self.save_button.setFixedWidth(150)
-        self.refresh_button.setFixedWidth(150)
+        self.refresh_button.setFixedWidth(160)
         self.transcribe_button.setFixedWidth(250)
+        self.extra_button.setFixedWidth(160)
 
         layout = QVBoxLayout()
         layout.addWidget(self.table_view)
@@ -59,14 +63,15 @@ class NewWindow(QWidget):
 
         # Add the other buttons to the right side
         button_layout.addWidget(self.transcribe_button)
-
         button_layout.addWidget(self.delete_button)
         button_layout.addWidget(self.save_button)
+        # button_layout.addWidget(self.extra_button)
 
         # Add the button layout to the main layout
         layout.addLayout(button_layout)
 
         self.setLayout(layout)
+        layout.addWidget(self.extra_button)
 
         # Terminal box
         self.terminal = QTextEdit()
@@ -74,10 +79,13 @@ class NewWindow(QWidget):
         self.terminal.setFixedHeight(100)  # Adjusting height of the terminal box
         layout.addWidget(self.terminal)
 
+
     def loadCSV(self, csv_file):
         try:
             with open(csv_file, 'r', newline='') as file:
                 reader = csv.reader(file)
+                header = next(reader)  # Get the header from the first row
+                self.model.setHorizontalHeaderLabels(header)  # Set the header labels
                 for i, row in enumerate(reader):
                     items = []
                     for j, field in enumerate(row):
@@ -91,15 +99,7 @@ class NewWindow(QWidget):
         except Exception as e:
             QMessageBox.critical(self, "Error", f"An error occurred while opening the CSV file:\n{str(e)}")
 
-    # def deleteRow(self):
-    #     selected = self.table_view.selectedIndexes()
-    #     if selected:
-    #         rows_to_delete = set(index.row() for index in selected)
-    #         for row in sorted(rows_to_delete, reverse=True):
-    #             self.model.removeRow(row)
-        
-
-    def deleteRow(self):                                                  #melhorar esta função
+    def deleteRow(self):
         selected = self.table_view.selectedIndexes()
         if selected:
             rows_to_delete = set(index.row() for index in selected)
@@ -116,9 +116,12 @@ class NewWindow(QWidget):
                 self.model.removeRow(row)
                 if os.path.exists(row_data[0]):
                     os.remove(row_data[0])
-                if os.path.exists(row_data[0].replace('.wav','.txt')):                                                #TODO    .replace('.wav','.txt').replace('/Audios','/Translations' nesta linha tmb
+                if os.path.exists(row_data[0].replace('.wav','.txt')):
                     os.remove(row_data[0].replace('.wav','.txt').replace('/Audios','/Translations'))
+
     def saveChanges(self):
+        self.terminal.append("Changes Saved")
+
         self.saveCSV()
         QMessageBox.information(self, "Save Changes", "Changes saved successfully!")
 
@@ -133,10 +136,13 @@ class NewWindow(QWidget):
             QMessageBox.critical(self, "Error", f"An error occurred while saving the CSV file:\n{str(e)}")
 
     def refreshCSV(self):
+        self.terminal.append("Refreshed Data Viewer")
         self.model.clear()
         self.loadCSV(self.file_path)
 
     def transcribeRemainingFiles(self):
         self.terminal.append("fiugfah")
 
+    def showMessage(self):
+        QMessageBox.information(self, "Information", "You clicked the extra button!")
 

@@ -1,6 +1,6 @@
 {
     "project_name": "Project",
     "lang": "en",
-    "window_theme": "auto",
-    "model": "medium"
+    "window_theme": "light",
+    "model": "medium.en"
 }
