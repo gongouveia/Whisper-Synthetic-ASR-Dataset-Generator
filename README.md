@@ -75,10 +75,7 @@ Contributions to this project are welcome! If you'd like to contribute, please f
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Create a new Pull Request.
 
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Author
 
 For any inquiries or collaboration, please contact [gongou00@gmail.com].
+I would be thankful to be cited in created datasets.
