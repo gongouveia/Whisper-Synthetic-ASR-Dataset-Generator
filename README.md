@@ -13,7 +13,7 @@ User interface is created using PyQt5 and runs totally on local machine.
 
 
 ## Overview
-This application serves as a Synthetic Speech Generator, enabling users to capture audio, transcribe it, and manage the generated dataset. It provides a user-friendly interface for configuring audio parameters, transcription options, and dataset management.
+This application serves as a Synthetic Speech Generator, enabling users to transcribe captured audio and managing generated datasets. It provides a user-friendly interface for configuring audio parameters, transcription options, and dataset management.
 
 ## Features
 - **Audio Capture**: Allows users to capture audio samples with customizable settings such as sample rate and duration.
