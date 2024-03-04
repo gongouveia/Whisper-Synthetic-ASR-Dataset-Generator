@@ -5,7 +5,6 @@ What is missing:
 - Verification and deployment of dataset in Hugging Face
 - Change logo under /Images (It is is just a production example)
 - Depending on community change argparse for Hydra  Dynamic config generation.
-- Add speaker metadata
 # Synthetic Speech Dataset Generator (SpeechGen)
 
 With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩:. 
@@ -42,11 +41,11 @@ I suggest that first you create and activate a new environment using `conda` or 
      ```
 
 ## Usage
-1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --lang <default:'en','multi'> --mode <default:'auto', 'light', 'dark'>,  `
+1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --mode <default:'auto', 'light', 'dark'>,  `
 2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
-3. Choose whether to transcribe audio as it capture is complete.
-4. Click on "Capture Audio" to start recording.
-5. View and manage the dataset using the provided options.
+3. Choose whether to add metadata to dataset or not, e.g. samplerate and audio duration. Age, gender and name of speaker in future releases.
+5. Click on "Capture Audio" to start recording.
+6. View and manage Audio dataset using provided menu options.
 # Notes
 In the case that the Idiom argument is set to ('en') the langauges dropdown menu is not available. 
 Case option 3. is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset, pasting audios in the `/Audios` uder your desired project.
@@ -55,7 +54,7 @@ Case option 3. is disabled, it is possible to transcribe all the captured audios
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
 - **Audio Duration**: Define the duration of audio samples to capture (in milliseconds).
 - **Transcribe**: Choose whether to transcribe captured audio (Yes/No).
-- **Audio Enhancement**: Enable or disable audio enhancement features (Yes/No).
+- **Audio Enhancement**: Enable or disable audio metadata in dataset (Yes/No).
 
 ### Dataset Management
 - **View Dataset**: Opens a new window to view the generated dataset.
