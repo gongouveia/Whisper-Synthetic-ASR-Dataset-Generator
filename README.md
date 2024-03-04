@@ -18,7 +18,7 @@ This application serves as a Synthetic Speech Generator, enabling users to trans
 ## Features
 - **Audio Capture**: Allows users to capture audio samples with customizable settings such as sample rate and duration.
 - **Transcription**: Provides the option to transcribe captured audio into text.
-- **Audio Enhancement**: Offers audio enhancement features for better quality recordings.
+- **Audio Metadata**: Allows to add metadata to dataset, such as audio sample rate and duration.
 - **Dataset Management**: Enables users to view, delete, and manage entries in the generated dataset.
 - **Export**: Allows exporting of the dataset for further processing or Hugging Face :hugs:.
 
