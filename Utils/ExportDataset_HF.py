@@ -48,7 +48,7 @@ def export_dataset_to_HF_hub(dataset, hf_token, dataset_name='new_dataset'):    
         print(login)
         repo_create = os.system(f'huggingface-cli repo create {dataset_name} --type dataset')
         print(repo_create)
-        upload = os.system('huggingface-cli upload')
+        upload = os.system('huggingface-cli upload')                                                     #Verificar
         print(upload)
                   
 
