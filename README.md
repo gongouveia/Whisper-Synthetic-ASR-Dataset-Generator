@@ -5,6 +5,7 @@ What is missing:
 - Verification and deployment of dataset in Hugging Face
 - Change logo under /Images (It is is just a production example)
 - Depending on community change argparse for Hydra  Dynamic config generation.
+- HF export not complete 
 # Synthetic Speech Dataset Generator (SpeechGen)
 
 With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩:. 
