@@ -1,12 +1,14 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton, QLineEdit, QLabel, QButtonGroup, QComboBox, QTextEdit, QFileDialog
 from PyQt5.QtCore import QTimer, Qt
-from SecondaryWindow.DatasetViewer import NewWindow
 from PyQt5.QtGui import QIcon
 import time
 import random
 from Utils.AudioCapture import record_audio_thread
 from Utils.Translation import *
+from SecondaryWindow.DatasetViewer import DataWindow
+from SecondaryWindow.FileDropMenu import FileDropWidget
+
 import torch
 
 
@@ -32,7 +34,7 @@ class SpeechGeneratorWindow(QWidget):
     def initUI(self):
         self.setWindowTitle("Synthetic Speech Generator")
         self.setFixedSize(650, 500)
-        self.setWindowIcon(QIcon('Images/fig2.png'))
+        self.setWindowIcon(QIcon('Images/fig.png'))
 
         self.audio_rate_label = QLabel("Audio Sample Rate: (KHz)  ")
         self.audio_rate_input = QLineEdit()
@@ -54,7 +56,7 @@ class SpeechGeneratorWindow(QWidget):
 
         self.start_button = QPushButton("Capture Audio")
         self.view_dataset_button = QPushButton("View Dataset")
-        self.delete_button = QPushButton("Delete Last Audio")
+        self.delete_button = QPushButton("Drop and find audio files")
         self.led_widget = LedWidget()
         self.delete_entry_label = QLabel("Language and Model:")
         self.delete_entry_dropdown = QComboBox()
@@ -81,6 +83,8 @@ class SpeechGeneratorWindow(QWidget):
             self.transcribe_no_radio.setChecked(True)
             self.transcribe_no_radio.setEnabled(False)
             self.transcribe_yes_radio.setEnabled(False)
+        else:
+            self.console.append(f"INFO: GPU available, allowed to transcribe after each audio recording. Or transcribe audios in the end.")
 
         hbox_metadata = QHBoxLayout()
         hbox_metadata.addWidget(self.audio_metadata_label)
@@ -120,15 +124,15 @@ class SpeechGeneratorWindow(QWidget):
         vbox.addLayout(hbox_delete_entry)
         vbox.addLayout(hbox_led)
         vbox.addLayout(hbox_view_dataset)
-        # vbox.addLayout(hbox_delete)
+        vbox.addLayout(hbox_delete)
         vbox.addWidget(self.console)
 
         self.setLayout(vbox)
 
         self.start_button.clicked.connect(self.TranscribeFucntion)
         self.transcribe_yes_radio.toggled.connect(self.enableDropdown)
-        self.view_dataset_button.clicked.connect(self.openNewWindow)
-        self.delete_button.clicked.connect(self.printMessage)
+        self.view_dataset_button.clicked.connect(self.openDataWindow)
+        self.delete_button.clicked.connect(self.openFileDropWindow)
 
         self.transcribe_group = QButtonGroup()
         self.transcribe_group.addButton(self.transcribe_yes_radio)
@@ -141,9 +145,9 @@ class SpeechGeneratorWindow(QWidget):
         self.delete_entry_dropdown.currentTextChanged.connect(self.updateModelDropdown)
         
 
-    def printMessage(self):
-        selected_language = self.delete_entry_dropdown.currentText()
-        self.console.append(f"Selected Language: {selected_language}")
+    # def printMessage(self):
+    #     selected_language = self.delete_entry_dropdown.currentText()
+    #     self.console.append(f"Selected Language: {selected_language}")
 
     def TranscribeFucntion(self):
         audio_duration = int(self.audio_duration_input.text())
@@ -201,11 +205,18 @@ class SpeechGeneratorWindow(QWidget):
             self.model_entry_dropdown.clear()
             self.model_entry_dropdown.addItems(["large", "medium",'small'])
 
-    def openNewWindow(self):
+    def openDataWindow(self):
         file_path = 'projects/Project/metadata.csv'
         if file_path:
-            self.new_window = NewWindow(file_path)
+            self.new_window = DataWindow(file_path)
             self.new_window.show()
+
+
+
+    def openFileDropWindow(self):
+        self.new_window = FileDropWidget()
+        self.new_window.show()
+
 
 
 

@@ -4,12 +4,12 @@ from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIcon
 import os
 import csv
 
-class NewWindow(QWidget):
+class DataWindow(QWidget):
     def __init__(self, file_path):
         super().__init__()
         self.setWindowTitle("Data Viewer")  # Setting window title
         self.setFixedSize(800, 600)  # Fixing window size
-        self.setWindowIcon(QIcon('Images/fig2.png'))  # Set window icon
+        self.setWindowIcon(QIcon('Images/fig.png'))  # Set window icon
 
         self.file_path = file_path
 
@@ -141,8 +141,32 @@ class NewWindow(QWidget):
         self.loadCSV(self.file_path)
 
     def transcribeRemainingFiles(self):
-        self.terminal.append("fiugfah")
+        transcribed_files = self.find_files_to_transcribe()
+        self.terminal.append("Transcribing Remaining files. Transcriptions will be saved automatically at each file iteration.")
+        self.terminal.append("Transcribed Files:")
+        for file in transcribed_files:
+            # Set 'Transcribed' in the second column of the current row
+            for row in range(self.model.rowCount()):
+                if self.model.item(row, 0).text() == file:
+                    item = QStandardItem('Transcribed')
+                    self.model.setItem(row, 1, item)  # Setting the second column to 'Transcribed'
+                    break
+            self.terminal.append(file)
+
+    def find_files_to_transcribe(self):
+        transcribed_files = []
+        for row in range(self.model.rowCount()):
+            transcription = self.model.item(row, 1).text().strip()
+            if transcription == 'text':
+                file_path = self.model.item(row, 0).text()
+                transcribed_files.append(file_path)
+        return transcribed_files
 
     def showMessage(self):
         QMessageBox.information(self, "Information", "You clicked the extra button!")
 
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = DataWindow("your_csv_file.csv")  # Replace "your_csv_file.csv" with the path to your CSV file
+    window.show()
+    sys.exit(app.exec_())
