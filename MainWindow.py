@@ -165,7 +165,7 @@ class SpeechGeneratorWindow(QWidget):
         save_dataset_csv_audio_text(filename, 'text')
         save_translation_to_txt(filename, 'INFO: Not translated. Press "Translate all files" to transcribe remaining files')
 
-    def disableWidgets(self):
+    def disableWidgets(self):                                                   #TODO fazer tudo numa unica função
         self.audio_rate_input.setEnabled(False)
         self.audio_duration_input.setEnabled(False)
 

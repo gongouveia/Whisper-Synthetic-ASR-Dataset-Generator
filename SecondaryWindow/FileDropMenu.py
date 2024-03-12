@@ -11,7 +11,7 @@ class FileDropWidget(QWidget):
         super().__init__()
 
         self.setWindowTitle("File Drop Menu")
-        self.setGeometry(100, 100, 500, 300)
+        self.setGeometry(100, 100, 500, 100)
         self.setWindowIcon(QIcon('Images/fig.png'))  # Set window icon
 
         self.setAcceptDrops(True)

@@ -22,4 +22,3 @@ def record_audio_thread(milliseconds, filename, samplerate=16000, channels=1):
 
 
 
-# # record_audio_thread(1, 'projects/Project/Audios/idaidua.wav')

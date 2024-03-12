@@ -64,7 +64,7 @@ class DataWindow(QWidget):
         # Add the other buttons to the right side
         button_layout.addWidget(self.transcribe_button)
         button_layout.addWidget(self.delete_button)
-        button_layout.addWidget(self.save_button)
+        # button_layout.addWidget(self.save_button)
         # button_layout.addWidget(self.extra_button)
 
         # Add the button layout to the main layout
@@ -118,6 +118,9 @@ class DataWindow(QWidget):
                     os.remove(row_data[0])
                 if os.path.exists(row_data[0].replace('.wav','.txt')):
                     os.remove(row_data[0].replace('.wav','.txt').replace('/Audios','/Translations'))
+        self.saveCSV()
+        QMessageBox.information(self, "Save Changes", "Changes saved successfully!")
+
 
     def saveChanges(self):
         self.terminal.append("Changes Saved")
@@ -129,6 +132,7 @@ class DataWindow(QWidget):
         try:
             with open(self.file_path, 'w', newline='') as file:
                 writer = csv.writer(file)
+                writer.writerow(['file_name', 'transcription'])
                 for row in range(self.model.rowCount()):
                     data = [self.model.item(row, col).text() for col in range(self.model.columnCount())]
                     writer.writerow(data)
@@ -152,7 +156,8 @@ class DataWindow(QWidget):
                     self.model.setItem(row, 1, item)  # Setting the second column to 'Transcribed'
                     break
             self.terminal.append(file)
-
+        self.saveCSV()
+        QMessageBox.information(self, "Save Changes", "Changes saved successfully!")
     def find_files_to_transcribe(self):
         transcribed_files = []
         for row in range(self.model.rowCount()):
@@ -167,6 +172,6 @@ class DataWindow(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = DataWindow("your_csv_file.csv")  # Replace "your_csv_file.csv" with the path to your CSV file
+    window = DataWindow("projects/Project/metadata.csv")  # Replace "your_csv_file.csv" with the path to your CSV file
     window.show()
     sys.exit(app.exec_())
