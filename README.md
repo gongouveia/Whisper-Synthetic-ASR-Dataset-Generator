@@ -34,9 +34,8 @@ I suggest that first you create and activate a new environment using `conda` or 
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
-3. Create virtual environemnt usinf `conda` or `virtenv`
 2. Install dependencies in requirements.txt
-    
+3. Follow instruction in Usage Section.
 
 ## Usage
 1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --mode <default:'auto', 'light', 'dark'>,  `
