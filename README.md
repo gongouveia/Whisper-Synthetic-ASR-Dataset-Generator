@@ -34,14 +34,9 @@ I suggest that first you create and activate a new environment using `conda` or 
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
-2. Install dependencies:
-    ```bash
-    pip install PyQt5 qdarktheme faster-whisper sounddevice wavio
-    ```
-     or, using conda:
-    ```bash
-     conda install --file requirements.txt
-     ```
+3. Create virtual environemnt usinf `conda` or `virtenv`
+2. Install dependencies in requirements.txt
+    
 
 ## Usage
 1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --mode <default:'auto', 'light', 'dark'>,  `
