@@ -2,10 +2,8 @@ Project under construction. First release early March 2024 🚧👷‍♂️
 First Release is fucntional but complete
 
 What is missing:
-- Audio capture is broken (first 0.3 seconds are corrupted, I believe that is due to pyqt and python multithread erratic behaviour),
-    This issue is being adressed.
+- Audio capture is broken (first 0.3 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behaviour),
 - Verification and deployment of dataset in Hugging Face
-- Add in the main window led the 🔴🟠🟢🔵 cycle (idle, audio setup, audio capture and transcription if gpu is available)
 - HF export not complete 
 # Synthetic Speech Dataset Generator (SpeechGen)
 
