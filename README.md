@@ -2,21 +2,21 @@ Project under construction. First release early April 2024 🚧👷‍♂️
 First Release is fucntional but complete
 
 What is missing:
-- Audio capture is broken (first 0.3 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behaviour),
+- Audio capture is broken (first 0.3 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior),
 - Verification and deployment of dataset in Hugging Face
 - HF export not complete 
 # Synthetic Speech Dataset Generator (SpeechGen)
 
-With rising of ASR/NLP open source projects, democtratizing the AI human machine interface, come the necessity to get better and better ASR datasets. This project delves into creating a simple to use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be eddited in UI Data viewer . 
+With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. This project delves into creating a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
 User interface is created using PyQt5 and runs totally on local machine.
 
 
 ## Overview
-This application serves as a Synthetic Speech Generator, enabling users to transcribe captured audio and managing generated datasets. It provides a user-friendly interface for configuring audio parameters, transcription options, and dataset management.
+This application serves as a Synthetic Speech Generator, enabling users to transcribe captured audio and manage generated datasets. It provides a user-friendly interface for configuring audio parameters, transcription options, and dataset management.
 ![progview](https://github.com/gongouveia/Synthetic-Speech-Dataset-Generator-Powered-by-Whisper-Train-Whisper/assets/68733294/eeda9460-029b-4a9a-bfa7-176086313f11)
 
 ## Features
-- **Audio Capture**: Allows users to capture audio samples with customizable settings such as sample rate and duration.
+- **Audio Capture**: Users can capture audio samples with customizable settings such as sample rate and duration.
 - **Transcription**: Provides the option to transcribe captured audio into text.
 - **Audio Metadata**: Allows to add metadata to dataset, such as audio sample rate and duration.
 - **Dataset Management**: Enables users to view, delete, and manage entries in the generated dataset.
@@ -26,8 +26,8 @@ This application serves as a Synthetic Speech Generator, enabling users to trans
 Adding metadata to each dataset entry, audio sample rate, length, or speaker gender and age.
 ReadMe update with UI screenshot and video
 
-## Installation  (Experimenta. Not yet complete, will do Pypi and conda install)
-I suggest that first you create and activate a new environment using `conda` or `virtenv`. Then follow steps ⬇️
+## Installation  (Experimenta. Not yet complete; will do Pypi and conda install)
+First, I suggest you create and activate a new environment using `conda` or `virtenv`. Then follow steps ⬇️
 1. Clone the repository:
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
@@ -38,12 +38,12 @@ I suggest that first you create and activate a new environment using `conda` or 
 ## Usage
 1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --mode <default:'auto', 'light', 'dark'>,  `
 2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
-3. Choose whether to add metadata to dataset or not, e.g. samplerate and audio duration. Age, gender and name of speaker in future releases.
+3. Choose whether to add metadata to a dataset or not, e.g., sample rate and audio duration. Age, gender and name of speaker in future releases.
 5. Click on "Capture Audio" to start recording.
 6. View and manage Audio dataset using provided menu options.
 # Notes
-In the case that the Idiom argument is set to ('en') the langauges dropdown menu is not available. 
-Case option 3. is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset, pasting audios in the `/Audios` uder your desired project.
+If the Idiom argument is set to ('en'), the languages dropdown menu is not available. 
+If option 3 is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset by pasting them in the `/Audios` folder under your desired project.
 
 ### Configuration
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
@@ -60,7 +60,7 @@ Case option 3. is disabled, it is possible to transcribe all the captured audios
 To export the final dataset as a Hugging Face 🤗 Datasets, use the Command-Line Interface (CLI) provided.
 [https://huggingface.co/docs/datasets/audio_dataset]
 
-You can login in UI providing the  hf token [https://huggingface.co/docs/hub/security-tokens].
+You can log in to UI by providing the hf token [https://huggingface.co/docs/hub/security-tokens].
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
 1. Fork the repository.
