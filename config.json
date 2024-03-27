@@ -1,6 +1,8 @@
 {
     "project_name": "Project",
-    "lang": "en",
     "window_theme": "light",
-    "model": "medium.en"
+    "GPU_avail": false,
+    "project_path": "Projects/Project",
+    "Audios_path": "Projects/Project/Audio",
+    "Text_path": "Projects/Project/Transcription"
 }

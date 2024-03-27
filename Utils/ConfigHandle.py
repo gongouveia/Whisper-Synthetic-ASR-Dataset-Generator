@@ -4,16 +4,13 @@ import json
 
 def write_config_dictionary(args, gpu_avail = False):
     print("Generating speech with the following parameters:")
-    print(f"Project: {args.project}")
-    print(f"Mode: {args.theme}")
-
-
     configs = {'project_name': args.project ,
                'window_theme': args.theme,
                 'GPU_avail': gpu_avail,
                 'project_path': 'Projects/' + args.project,
                 'Audios_path': 'Projects/' + args.project + '/Audio',
-                'Text_path': 'Projects/' + args.project + '/Transcription'
+                'Text_path': 'Projects/' + args.project + '/Transcription',
+                'metadata': 'Projects/' + args.project + '/metadata.csv',
 
                }
     write_dict_to_json(configs)
