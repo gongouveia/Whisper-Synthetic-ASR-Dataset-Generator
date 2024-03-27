@@ -1,14 +1,13 @@
-import sys
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton, QLineEdit, QLabel, QButtonGroup, QComboBox, QTextEdit, QFileDialog
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QIcon
-import time
-import random
 from Utils.AudioCapture import record_audio_thread
 from Utils.Translation import *
 from SecondaryWindow.DatasetViewer import DataWindow
 from SecondaryWindow.FileDropMenu import FileDropWidget
-
+import sys
+import time
+import random
 import torch
 
 
@@ -143,15 +142,9 @@ class SpeechGeneratorWindow(QWidget):
         self.metadata_group.addButton(self.metadata_no_radio)
 
         self.delete_entry_dropdown.currentTextChanged.connect(self.updateModelDropdown)
-        
-
-    # def printMessage(self):
-    #     selected_language = self.delete_entry_dropdown.currentText()
-    #     self.console.append(f"Selected Language: {selected_language}")
-
+    
     def TranscribeFucntion(self):
         audio_duration = int(self.audio_duration_input.text())
-
         self.disableWidgets()
         self.led_widget.setGreen()
         filename = 'projects/Project/Audios/audio_' + str(random.randint(0, 1e6)) + '.wav'
@@ -161,11 +154,10 @@ class SpeechGeneratorWindow(QWidget):
         self.timer.timeout.connect(self.enableWidgets)
         self.timer.start(audio_duration)
         self.last_audio = filename
-
         save_dataset_csv_audio_text(filename, 'text')
         save_translation_to_txt(filename, 'INFO: Not translated. Press "Translate all files" to transcribe remaining files')
 
-    def disableWidgets(self):                                                   #TODO fazer tudo numa unica função
+    def disableWidgets(self):                                                   #TODO this can be done in a single fucntion
         self.audio_rate_input.setEnabled(False)
         self.audio_duration_input.setEnabled(False)
 
@@ -191,7 +183,7 @@ class SpeechGeneratorWindow(QWidget):
         self.led_widget.setStyleSheet("background-color: red; border-radius: 10px;")
 
     def enableDropdown(self, checked):
-        print('da')
+        print('Disabled for now')
         # if checked:
         #     self.delete_entry_dropdown.setEnabled(True)
         # else:
