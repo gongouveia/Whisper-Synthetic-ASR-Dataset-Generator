@@ -1,13 +1,12 @@
-Project under construction. First release early April 2024 🚧👷‍♂️
-First Release is fucntional but complete
+Project under construction. First complete release early April 2024 🚧👷‍♂️
 
-What is missing:
-- Audio capture is broken (first 0.3 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior),
-- Verification and deployment of dataset in Hugging Face
-- HF export not complete 
+What is missing now:
+- Audio capture mistake (first 0.2 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior).
+- HF export not complete ´, including HF.
+- File drop and upload not fully complete.
 # Synthetic Speech Dataset Generator (SpeechGen)
 
-With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. This project delves into creating a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
+With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. <Whisper Temple delves creates a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
 User interface is created using PyQt5 and runs totally on local machine.
 
 
@@ -27,7 +26,7 @@ Adding metadata to each dataset entry, audio sample rate, length, or speaker gen
 ReadMe update with UI screenshot and video
 
 ## Installation  (Experimenta. Not yet complete; will do Pypi and conda install)
-First, I suggest you create and activate a new environment using `conda` or `virtenv`. Then follow steps ⬇️
+First, I suggest you create and activate a new virtual environment using `conda` or `virtenv`. Then follow steps ⬇️
 1. Clone the repository:
     ```bash
     https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
@@ -36,11 +35,13 @@ First, I suggest you create and activate a new environment using `conda` or `vir
 3. Follow instruction in Usage Section.
 
 ## Usage
-1. Launch the application and create or continue a project by running `python speech_gen.py --project project_name --mode <default:'auto', 'light', 'dark'>,  `
+1. Launch the application and create or continue a project by running `python speech_gen.py --project <project_name> --theme <default:'auto', 'light', 'dark'>,  `
 2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
-3. Choose whether to add metadata to a dataset or not, e.g., sample rate and audio duration. Age, gender and name of speaker in future releases.
-5. Click on "Capture Audio" to start recording.
+3. If CUDA is found, it is possibel to transcribe audio records at the ed of each recording. Otherwise, yo can batch transcribe the audios in the DatasetViewer..
+4. Choose whether to use VAD option in transcripion or not, default is enabled and allows for a faster trancription.
+5. Click on "Capture Audio" to start a new audio recording.
 6. View and manage Audio dataset using provided menu options.
+7. Edit weak Transcriptions, creating a even more robust training dataset for Whisper.
 # Notes
 If the Idiom argument is set to ('en'), the languages dropdown menu is not available. 
 If option 3 is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset by pasting them in the `/Audios` folder under your desired project.
@@ -49,10 +50,11 @@ If option 3 is disabled, it is possible to transcribe all the captured audios in
 - **Audio Sample Rate**: Set the sample rate for audio capture (in KHz).
 - **Audio Duration**: Define the duration of audio samples to capture (in milliseconds).
 - **Transcribe**: Choose whether to transcribe captured audio (Yes/No).
-- **Audio Enhancement**: Enable or disable audio metadata in dataset (Yes/No).
+- **VAD**: Enable or disable VAD in transcription (Yes/No).
 
 ### Dataset Management
 - **View Dataset**: Opens a new window to view the generated dataset.
+- **Refresh Dataset**: Refreshes dataset, use if changed metadata.csv.
 - **Delete Entry**: Deletes the last recorded entry from the dataset.
 
 
@@ -61,6 +63,8 @@ To export the final dataset as a Hugging Face 🤗 Datasets, use the Command-Lin
 [https://huggingface.co/docs/datasets/audio_dataset]
 
 You can log in to UI by providing the hf token [https://huggingface.co/docs/hub/security-tokens].
+
+
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
 1. Fork the repository.
