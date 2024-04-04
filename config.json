@@ -2,7 +2,7 @@
     "project_name": "Project",
     "window_theme": "light",
     "GPU_avail": false,
-    "project_path": "Projects/Project",
-    "Audios_path": "Projects/Project/Audio",
-    "Text_path": "Projects/Project/Transcription"
+    "project_path": "Projects/",
+    "Audios_path": "Projects/",
+    "Text_path": "Projects/"
 }
