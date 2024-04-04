@@ -31,8 +31,11 @@ First, I suggest you create and activate a new virtual environment using `conda`
     ```bash
     git clone https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
-2. Install dependencies in requirements.txt
-   
+2. Install dependencies in req.yml (tested on Windows)
+   ```bash
+   conda env create -f req.yml
+   conda activate WhisperTemple
+    ```   
 4. Follow instruction in Usage Section.
 
 ## Usage
