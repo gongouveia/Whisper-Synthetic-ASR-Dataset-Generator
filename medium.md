@@ -2,7 +2,7 @@
 
 # WhisperTemple ⛩️: Mastering ASR dataset Synthesis, Management and Export with HugginFace! 
 
-Welcome to [WhisperTemple](https://link-url-here.org), where audio mastery awaits! Just as ancient temples were sanctuaries for seekers of knowledge and enlightenment. WhisperTemple, the Python GUI program that redefines audio synthesis, transcription, management and export to HugginFace with unprecedented efficiency and ease! Democratizing ASR finetuning for everyone.
+Welcome to [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator)), where audio mastery awaits! Just as ancient temples were sanctuaries for seekers of knowledge and enlightenment. WhisperTemple, the Python GUI program that redefines audio synthesis, transcription, management and export to HugginFace with unprecedented efficiency and ease! Democratizing ASR finetuning for everyone.
 
 <!-- ## Seamlessly Synthesize Audio Datasets
 
@@ -14,7 +14,7 @@ Gone are the days of tedious manual transcription. WhisperTemple seamlessly inte
 
 ## Advanced Data Management & Export Made Easy
 
-Tired of juggling multiple tools for audio data management? [WhisperTemple](https://link-url-here.org) streamlines the process with its comprehensive data management features. Effortlessly organize, tag, and export your audio datasets with our intuitive interface. Add metadata such as sample rate and audio duration to enrich your datasets and streamline further analysis.**And with seamless integration with Hugging Face, you can enhance ASR models using the power of the transformer library, unlocking new levels of accuracy and performance.**
+Tired of juggling multiple tools for audio data management? [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator)) streamlines the process with its comprehensive data management features. Effortlessly organize, tag, and export your audio datasets with our intuitive interface. Add metadata such as sample rate and audio duration to enrich your datasets and streamline further analysis.**And with seamless integration with Hugging Face, you can enhance ASR models using the power of the transformer library, unlocking new levels of accuracy and performance.**
 
 ## Flexible Audio Input Options
 
@@ -28,7 +28,7 @@ WhisperTemple not only allows you to record audio directly from the microphone b
 - **Local Execution**: Run it locally for enhanced privacy and control over your data.
 - **Comprehensive Data Management**: Organize, tag, and export your audio datasets seamlessly within the WhisperTemple interface. Add metadata such as sample rate and audio duration for enhanced analysis.
 - **Flexible Audio Input Options**: Record audio directly from the microphone or upload audio files for transcription and analysis.
-- **Hugging Face Integration**: Export datasets to [Huggingface](https://link-url-here.org) 🤗 for enhanced ASR model training using the [Transformer](https://link-url-here.org) library.
+- **Hugging Face Integration**: Export datasets to [Huggingface](https://huggingface.co/) 🤗 for enhanced ASR model training using the [Transformer](https://huggingface.co/docs/transformers/index) library.
 
 ## Revolutionize Your Workflow Today!
 
@@ -37,4 +37,4 @@ Say goodbye to manual transcription headaches and inefficient data management. E
 
 Unlock the secrets of WhisperTemple and become the master of your audio destiny!
 
-*Note: [WhisperTemple](https://link-url-here.org) is a sanctuary in constant evolution, and your feedback is the key to unlocking its full potential.*
+*Note: [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator)) is a sanctuary in constant evolution, and your feedback is the key to unlocking its full potential.*
