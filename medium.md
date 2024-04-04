@@ -2,7 +2,7 @@
 
 # WhisperTemple ⛩️: Mastering ASR dataset Synthesis, Management and Export with HugginFace! 
 
-Welcome to [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator)), where audio mastery awaits! Just as ancient temples were sanctuaries for seekers of knowledge and enlightenment. WhisperTemple, the Python GUI program that redefines audio synthesis, transcription, management and export to HugginFace with unprecedented efficiency and ease! Democratizing ASR finetuning for everyone.
+Welcome to [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator), where audio mastery awaits! Just as ancient temples were sanctuaries for seekers of knowledge and enlightenment. WhisperTemple, the Python GUI program that redefines audio synthesis, transcription, management and export to HugginFace with unprecedented efficiency and ease! Democratizing ASR finetuning for everyone.
 
 <!-- ## Seamlessly Synthesize Audio Datasets
 
@@ -37,4 +37,4 @@ Say goodbye to manual transcription headaches and inefficient data management. E
 
 Unlock the secrets of WhisperTemple and become the master of your audio destiny!
 
-*Note: [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator)) is a sanctuary in constant evolution, and your feedback is the key to unlocking its full potential.*
+*Note: [WhisperTemple]([https://link-url-here.org](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator) is a sanctuary in constant evolution, and your feedback is the key to unlocking its full potential.*
