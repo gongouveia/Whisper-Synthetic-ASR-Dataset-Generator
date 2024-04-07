@@ -18,7 +18,11 @@ def record_audio_thread(milliseconds, filename, samplerate=16000, channels=1):
             print(f"An error occurred: {e}")
 
     recording_thread = threading.Thread(target=_record)
+
+
     recording_thread.start()
+
+
 
 
 

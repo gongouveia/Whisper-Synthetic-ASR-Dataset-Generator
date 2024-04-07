@@ -25,18 +25,14 @@ This application serves as a Synthetic Speech Generator, enabling users to trans
 Adding metadata to each dataset entry, audio sample rate, length, or speaker gender and age.
 ReadMe update with UI screenshot and video
 
-## Installation  
+## Installation  (Experimenta. Not yet complete; will do Pypi and conda install)
 First, I suggest you create and activate a new virtual environment using `conda` or `virtenv`. Then follow steps ⬇️
 1. Clone the repository:
     ```bash
-    git clone https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
+    https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
-2. Install dependencies in req.yml (tested on Windows)
-   ```bash
-   conda env create -f req.yml
-   conda activate WhisperTemple
-    ```   
-4. Follow instruction in Usage Section.
+2. Install dependencies in requirements.txt
+3. Follow instruction in Usage Section.
 
 ## Usage
 1. Launch the application and create or continue a project by running `python speech_gen.py --project <project_name> --theme <default:'auto', 'light', 'dark'>,  `

@@ -10,17 +10,12 @@ import argparse
 import torch
 
 
-#TODO text in the beggining of the window
-#check and create project
-
-
 
 if __name__ == '__main__':
 
 
     parser = argparse.ArgumentParser(description="Generate speech with specified project, language, and mode")
     parser.add_argument('--project', type=str, required=True, help='Specify project name')
-    #parser.add_argument('--lang', type=str, default='en', choices=['en', 'multi'], help="Specify language ('en' or 'multi')")
     parser.add_argument('--theme', type=str, default='light', choices=['auto', 'light', 'dark'], help="Specify theme mode ('auto', 'light', or 'dark')")
     args = parser.parse_args()
 

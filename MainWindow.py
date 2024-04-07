@@ -1,15 +1,14 @@
-import sys
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QRadioButton, QPushButton, QLineEdit, QLabel, QButtonGroup, QComboBox, QTextEdit, QFileDialog
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QIcon
-import time
 import random
 from Utils.AudioCapture import record_audio_thread
 from Utils.Translation import *
 from SecondaryWindow.DatasetViewer import DataWindow
 from SecondaryWindow.FileDropMenu import FileDropWidget
-
+from Utils.ConfigHandle import read_parameters_from_json
 import torch
+import json
 
 
 class LedWidget(QLabel):
@@ -28,9 +27,9 @@ class LedWidget(QLabel):
 class SpeechGeneratorWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.last_audio = 'No audio generated yet'
         self.initUI()
-
+        self.model = load_translation_model(model_size = 'small.en')
+        self.parameters = read_parameters_from_json()
     def initUI(self):
         self.setWindowTitle("Synthetic Speech Generator")
         self.setFixedSize(650, 500)
@@ -60,8 +59,7 @@ class SpeechGeneratorWindow(QWidget):
         self.led_widget = LedWidget()
         self.delete_entry_label = QLabel("Language and Model:")
         self.delete_entry_dropdown = QComboBox()
-        self.delete_entry_dropdown.addItem("english")
-        self.delete_entry_dropdown.addItem("multilingual")
+        self.delete_entry_dropdown.addItems(['english','multilignual'])
 
         self.model_entry_dropdown = QComboBox()
         self.model_entry_dropdown.addItems(["medium.en", "small.en"])
@@ -130,7 +128,6 @@ class SpeechGeneratorWindow(QWidget):
         self.setLayout(vbox)
 
         self.start_button.clicked.connect(self.TranscribeFucntion)
-        self.transcribe_yes_radio.toggled.connect(self.enableDropdown)
         self.view_dataset_button.clicked.connect(self.openDataWindow)
         self.delete_button.clicked.connect(self.openFileDropWindow)
 
@@ -145,24 +142,28 @@ class SpeechGeneratorWindow(QWidget):
         self.delete_entry_dropdown.currentTextChanged.connect(self.updateModelDropdown)
         
 
-    # def printMessage(self):
-    #     selected_language = self.delete_entry_dropdown.currentText()
-    #     self.console.append(f"Selected Language: {selected_language}")
-
     def TranscribeFucntion(self):
         audio_duration = int(self.audio_duration_input.text())
 
         self.disableWidgets()
         self.led_widget.setGreen()
-        filename = 'Projects/Project/Audio/audio_' + str(random.randint(0, 1e6)) + '.wav'
+        filename =  self.parameters['audios_path'] + '/audio_' + str(random.randint(0, 1e6)) + '.wav'
         record_audio_thread(audio_duration, filename)
         self.timer = QTimer(self)
         self.timer.setSingleShot(True)
         self.timer.timeout.connect(self.enableWidgets)
         self.timer.start(audio_duration)
         self.last_audio = filename
+        if self.transcribe_no_radio.isChecked(): 
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'text')
 
-        save_dataset_csv_audio_text(filename, 'text')
+        else:
+            self.console.append('Transcribing audio')
+            # text =whisper_translation(self.model,'en', filename)
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'cona')
+            self.console.append('Done')
+
+
         save_translation_to_txt(filename, 'INFO: Not translated. Press "Translate all files" to transcribe remaining files')
 
     def disableWidgets(self):                                                   #TODO fazer tudo numa unica função
@@ -190,13 +191,6 @@ class SpeechGeneratorWindow(QWidget):
         self.delete_button.setEnabled(True)
         self.led_widget.setStyleSheet("background-color: red; border-radius: 10px;")
 
-    def enableDropdown(self, checked):
-        print('Disabled for now')
-        # if checked:
-        #     self.delete_entry_dropdown.setEnabled(True)
-        # else:
-        #     self.delete_entry_dropdown.setEnabled(False)
-
     def updateModelDropdown(self, text):
         if text == "en":
             self.model_entry_dropdown.clear()
@@ -206,11 +200,10 @@ class SpeechGeneratorWindow(QWidget):
             self.model_entry_dropdown.addItems(["large", "medium",'small'])
 
     def openDataWindow(self):
-        file_path = 'Projects/Project/metadata.csv'
-        if file_path:
-            self.new_window = DataWindow(file_path)
+        metadata = self.parameters['metadata']
+        if metadata:
+            self.new_window = DataWindow(metadata)
             self.new_window.show()
-
 
 
     def openFileDropWindow(self):

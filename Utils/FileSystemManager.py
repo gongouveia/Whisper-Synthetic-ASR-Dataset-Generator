@@ -1,6 +1,9 @@
 
 import os
 import csv
+import json
+
+
 
 def is_path_not_in_universe(folder_file_path):
     	return not os.path.exists(folder_file_path)
@@ -19,11 +22,6 @@ def get_files_in_folder(folder_path, is_wav_txt ='.wav'):
     return files_list
 
 
-
-
-
-
-
 def create_metadata_file(file_path):
     try:
         with open(file_path, 'w', newline='') as csvfile:
@@ -32,8 +30,6 @@ def create_metadata_file(file_path):
         print(f"metadata CSV file created successfully at {file_path}")
     except Exception as e:
         print(f"Error occurred: {e}")
-
-
 
 
 
@@ -46,6 +42,5 @@ def create_new_project(project_name):
         create_metadata_file(path_name +'/metadata.csv')
         return True
     return False
-
 
 

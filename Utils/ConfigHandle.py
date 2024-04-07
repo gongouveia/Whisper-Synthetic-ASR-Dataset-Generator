@@ -8,8 +8,8 @@ def write_config_dictionary(args, gpu_avail = False):
                'window_theme': args.theme,
                 'GPU_avail': gpu_avail,
                 'project_path': 'Projects/' + args.project,
-                'Audios_path': 'Projects/' + args.project + '/Audio',
-                'Text_path': 'Projects/' + args.project + '/Transcription',
+                'audios_path': 'Projects/' + args.project + '/Audio',
+                'text_path': 'Projects/' + args.project + '/Transcription',
                 'metadata': 'Projects/' + args.project + '/metadata.csv',
 
                }
@@ -23,10 +23,10 @@ def write_dict_to_json(dictionary, file_path = 'config.json'):
 
 
 
-def retrieve_config_params(file_path = 'config.json'):
-    with open(file_path, 'r') as json_file:
-        config_data = json.load(json_file)
-    return config_data
+def read_parameters_from_json(json_file_path= 'config.json'):
+    with open(json_file_path, 'r') as f:
+        parameters = json.load(f)
+    return parameters
 
 
 

@@ -7,11 +7,13 @@ import csv
 class DataWindow(QWidget):
     def __init__(self, file_path):
         super().__init__()
-        self.setWindowTitle("Data Viewer")  # Setting window title
-        self.setFixedSize(800, 600)  # Fixing window size
-        self.setWindowIcon(QIcon('Images/fig.png'))  # Set window icon
 
         self.file_path = file_path
+
+
+        self.setWindowTitle("Data Viewer") 
+        self.setFixedSize(800, 600) 
+        self.setWindowIcon(QIcon('Images/fig.png'))  
 
         self.table_view = QTableView()
         self.model = QStandardItemModel(self)

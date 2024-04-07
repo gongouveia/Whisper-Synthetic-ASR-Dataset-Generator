@@ -69,7 +69,7 @@ def laod_model_from_disk(hf_dataset_name):           #DEBUG purpose, TESTED
         return None
 
 
-dataset = load_dataset("audiofolder", data_dir=r"C:\Users\gouve\Desktop\gradio_pr\Utils\my_dataset\data")
+dataset = load_dataset("audiofolder", data_dir=r"C:\Users\Alguém\Desktop\WhisperSpeech\Projects\Project\Audio")
 print(dataset['train'])
 
 # create_hf_dataset(data_folder_path = r"Projects/Project/Audio",
