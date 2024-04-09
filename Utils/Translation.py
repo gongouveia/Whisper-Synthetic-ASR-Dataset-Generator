@@ -23,9 +23,9 @@ def save_translation_to_txt(audio_file, text):
 
 
 
-def save_dataset_csv_audio_text(metadata_file, audio_file, text):
+def save_dataset_csv_audio_text(metadata_file, audio_file, text, sample_rate, audio_duration_ms):
 	text_file = open(metadata_file, "a")  #name defined by hf Audio Datasets
-	text_file.write(f'{audio_file},{text}\n')
+	text_file.write(f'{audio_file},{text},{sample_rate},{audio_duration_ms}\n')
 	text_file.close()
 
 

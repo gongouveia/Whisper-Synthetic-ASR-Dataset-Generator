@@ -57,9 +57,9 @@ class SpeechGeneratorWindow(QWidget):
         self.view_dataset_button = QPushButton("View Dataset")
         self.delete_button = QPushButton("Drop and find audio files")
         self.led_widget = LedWidget()
-        self.delete_entry_label = QLabel("Language and Model:")
-        self.delete_entry_dropdown = QComboBox()
-        self.delete_entry_dropdown.addItems(['english','multilignual'])
+        self.language_label = QLabel("Language and Model:")
+        self.language_dropdown = QComboBox()
+        self.language_dropdown.addItems(['english','multilignual'])
 
         self.model_entry_dropdown = QComboBox()
         self.model_entry_dropdown.addItems(["medium.en", "small.en"])
@@ -103,10 +103,10 @@ class SpeechGeneratorWindow(QWidget):
         hbox_audio_duration.addWidget(self.audio_duration_input)
         hbox_audio_duration.addStretch(1)
 
-        hbox_delete_entry = QHBoxLayout()
-        hbox_delete_entry.addWidget(self.delete_entry_label)
-        hbox_delete_entry.addWidget(self.delete_entry_dropdown)
-        hbox_delete_entry.addWidget(self.model_entry_dropdown)
+        hbox_language = QHBoxLayout()
+        hbox_language.addWidget(self.language_label)
+        hbox_language.addWidget(self.language_dropdown)
+        hbox_language.addWidget(self.model_entry_dropdown)
 
         hbox_view_dataset = QHBoxLayout()
         hbox_view_dataset.addWidget(self.view_dataset_button)
@@ -119,7 +119,7 @@ class SpeechGeneratorWindow(QWidget):
         vbox.addLayout(hbox_audio_duration)
         vbox.addLayout(hbox_transcribe)
         vbox.addLayout(hbox_vad)
-        vbox.addLayout(hbox_delete_entry)
+        vbox.addLayout(hbox_language)
         vbox.addLayout(hbox_led)
         vbox.addLayout(hbox_view_dataset)
         vbox.addLayout(hbox_delete)
@@ -139,12 +139,12 @@ class SpeechGeneratorWindow(QWidget):
         self.vad_group.addButton(self.vad_yes_radio)
         self.vad_group.addButton(self.vad_no_radio)
 
-        self.delete_entry_dropdown.currentTextChanged.connect(self.updateModelDropdown)
+        self.language_dropdown.currentTextChanged.connect(self.updateModelDropdown)
         
 
     def TranscribeFucntion(self):
         audio_duration = int(self.audio_duration_input.text())
-
+        sample_rate = int(self.audio_rate_input.text())
         self.disableWidgets()
         self.led_widget.setGreen()
         filename =  self.parameters['audios_path'] + '/audio_' + str(random.randint(0, 1e6)) + '.wav'
@@ -155,18 +155,18 @@ class SpeechGeneratorWindow(QWidget):
         self.timer.start(audio_duration)
         self.last_audio = filename
         if self.transcribe_no_radio.isChecked(): 
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'text')
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'text',sample_rate, audio_duration)
 
         else:
-            self.console.append('Transcribing audio')
+            self.console.append('Transcribing audio')                                              #TODO not yet done
             # text =whisper_translation(self.model,'en', filename)
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'cona')
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'cona',sample_rate, audio_duration)
             self.console.append('Done')
 
 
         save_translation_to_txt(filename, 'INFO: Not translated. Press "Translate all files" to transcribe remaining files')
 
-    def disableWidgets(self):                                                   #TODO fazer tudo numa unica função
+    def disableWidgets(self):                                                   #TODO disableWidgets and enableWidgets can be same function
         self.audio_rate_input.setEnabled(False)
         self.audio_duration_input.setEnabled(False)
 
@@ -177,7 +177,7 @@ class SpeechGeneratorWindow(QWidget):
         self.start_button.setEnabled(False)
         self.view_dataset_button.setEnabled(False)
         self.delete_button.setEnabled(False)
-        self.delete_entry_dropdown.setEnabled(False)
+        self.language_dropdown.setEnabled(False)
 
     def enableWidgets(self):
         self.audio_rate_input.setEnabled(True)
@@ -207,7 +207,10 @@ class SpeechGeneratorWindow(QWidget):
 
 
     def openFileDropWindow(self):
-        self.new_window = FileDropWidget()
+        audio_path = self.parameters['audios_path']
+        metadata = self.parameters['metadata']
+
+        self.new_window = FileDropWidget(metadata, audio_path)
         self.new_window.show()
 
 

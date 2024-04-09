@@ -1,6 +1,6 @@
 {
     "project_name": "Project",
-    "window_theme": "light",
+    "window_theme": "auto",
     "GPU_avail": true,
     "project_path": "Projects/Project",
     "audios_path": "Projects/Project/Audio",

@@ -26,7 +26,7 @@ def create_metadata_file(file_path):
     try:
         with open(file_path, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(['file_name', 'transcription'])
+            csv_writer.writerow(['file_name', 'transcription','sample_rate','duration_ms'])
         print(f"metadata CSV file created successfully at {file_path}")
     except Exception as e:
         print(f"Error occurred: {e}")
@@ -44,3 +44,13 @@ def create_new_project(project_name):
     return False
 
 
+def delete_files_in_folder(folder_path):
+    # Delete all files in the folder
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        try:
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+                print(f"File {file_path} deleted successfully.")
+        except Exception as e:
+            print(f"Failed to delete {file_path}: {e}")
