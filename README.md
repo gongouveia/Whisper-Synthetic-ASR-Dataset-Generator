@@ -3,7 +3,6 @@ Project under construction. First complete release early May 2024 🚧👷‍♂
 What is missing now:
 - Audio capture mistake (first 0.2 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior).
 - HF export not complete ´, including HF.
-- File drop and upload not fully complete.
 # Synthetic Speech Dataset Generator (SpeechGen)
 
 With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. <Whisper Temple delves creates a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
