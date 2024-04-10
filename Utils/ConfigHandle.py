@@ -24,8 +24,8 @@ def write_dict_to_json(dictionary, file_path = 'config.json'):
 
 
 def read_parameters_from_json(json_file_path= 'config.json'):
-    with open(json_file_path, 'r') as f:
-        parameters = json.load(f)
+    with open(json_file_path, 'r') as file:
+        parameters = json.load(file)
     return parameters
 
 

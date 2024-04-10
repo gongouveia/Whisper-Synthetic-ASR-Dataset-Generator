@@ -4,7 +4,7 @@ from PyQt5.QtGui import QIcon
 import random
 from Utils.AudioCapture import record_audio_thread
 from Utils.Translation import *
-from SecondaryWindow.DatasetViewer import DataWindow
+from DatasetViewer import DataWindow
 from SecondaryWindow.FileDropMenu import FileDropWidget
 from Utils.ConfigHandle import read_parameters_from_json
 import torch
@@ -155,12 +155,12 @@ class SpeechGeneratorWindow(QWidget):
         self.timer.start(audio_duration)
         self.last_audio = filename
         if self.transcribe_no_radio.isChecked(): 
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'text',sample_rate, audio_duration)
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'No trancription found.',sample_rate, audio_duration)
 
         else:
             self.console.append('Transcribing audio')                                              #TODO not yet done
-            # text =whisper_translation(self.model,'en', filename)
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'cona',sample_rate, audio_duration)
+            #text =whisper_translation(self.model,'en', filename)
+            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'transcribed',sample_rate, audio_duration)
             self.console.append('Done')
 
 

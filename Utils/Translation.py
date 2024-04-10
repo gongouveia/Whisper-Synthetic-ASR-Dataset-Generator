@@ -1,13 +1,18 @@
 from faster_whisper import WhisperModel
 
-def load_translation_model(model_size = 'small.en'):
-	model = WhisperModel(model_size)
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+
+
+
+def load_translation_model(model_size = 'tiny'):
+	model = WhisperModel(model_size, device="auto", compute_type="float32")
 	return model
 
 
 def whisper_translation(model,language, audio_file):
 	text = []
-	result = model.transcribe(audio_file, language = language)
 	segments, info = model.transcribe(audio_file, language = language)
 	for segment in segments:
 		text.append(segment.text)
@@ -27,5 +32,8 @@ def save_dataset_csv_audio_text(metadata_file, audio_file, text, sample_rate, au
 	text_file = open(metadata_file, "a")  #name defined by hf Audio Datasets
 	text_file.write(f'{audio_file},{text},{sample_rate},{audio_duration_ms}\n')
 	text_file.close()
+
+
+
 
 

@@ -15,7 +15,7 @@ def main():
         epilog="Author: Gonçalo Gouveia | Lisbon,PT"
     )
     parser.add_argument('--project', type=str, default=True, help='Specify the name of the project')
-    parser.add_argument('--theme', type=str, default='auto', choices=['auto', 'light', 'dark'], help="Specify theme mode ('auto', 'light', or 'dark')")
+    parser.add_argument('--theme', type=str, default='light', choices=['auto', 'light', 'dark'], help="Specify theme mode ('auto', 'light', or 'dark')")
     args = parser.parse_args()
     print(f'GPU available: {torch.cuda.is_available()}\n')
 

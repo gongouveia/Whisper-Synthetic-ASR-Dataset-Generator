@@ -35,7 +35,7 @@ def create_metadata_file(file_path):
 
 def create_new_project(project_name):
     path_name = f"Projects/{project_name}"
-    if not os.path.isdir(path_name ): 
+    if not os.path.isdir(path_name): 
         os.makedirs(path_name )
         os.makedirs(path_name + '/Audio/' )
         os.makedirs(path_name + '/Translations/')
