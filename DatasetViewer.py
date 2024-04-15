@@ -4,7 +4,7 @@ from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIcon
 import os
 import csv
 from Utils.ConfigHandle import read_parameters_from_json
-
+import threading
 from Utils.Translation import load_translation_model, whisper_translation
 
 class DataWindow(QWidget):

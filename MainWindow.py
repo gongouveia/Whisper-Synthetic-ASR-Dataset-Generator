@@ -9,7 +9,7 @@ from SecondaryWindow.FileDropMenu import FileDropWidget
 from Utils.ConfigHandle import read_parameters_from_json
 import torch
 import json
-
+import threading
 
 class LedWidget(QLabel):
     def __init__(self, parent=None):
@@ -28,7 +28,7 @@ class SpeechGeneratorWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.model = load_translation_model(model_size = 'small.en')
+        self.model = None
         self.parameters = read_parameters_from_json()
     def initUI(self):
         self.setWindowTitle("Synthetic Speech Generator")
@@ -62,7 +62,7 @@ class SpeechGeneratorWindow(QWidget):
         self.language_dropdown.addItems(['english','multilignual'])
 
         self.model_entry_dropdown = QComboBox()
-        self.model_entry_dropdown.addItems(["medium.en", "small.en"])
+        self.model_entry_dropdown.addItems(["tiny.en","medium.en", "small.en"])
 
         self.console = QTextEdit()
         self.console.setReadOnly(True)
@@ -107,7 +107,8 @@ class SpeechGeneratorWindow(QWidget):
         hbox_language.addWidget(self.language_label)
         hbox_language.addWidget(self.language_dropdown)
         hbox_language.addWidget(self.model_entry_dropdown)
-
+        self.new_button = QPushButton("Set Model")
+        hbox_language.addWidget(self.new_button)
         hbox_view_dataset = QHBoxLayout()
         hbox_view_dataset.addWidget(self.view_dataset_button)
 
@@ -126,6 +127,9 @@ class SpeechGeneratorWindow(QWidget):
         vbox.addWidget(self.console)
 
         self.setLayout(vbox)
+        
+        
+        self.new_button.clicked.connect(self.printMessage)
 
         self.start_button.clicked.connect(self.TranscribeFucntion)
         self.view_dataset_button.clicked.connect(self.openDataWindow)
@@ -147,20 +151,21 @@ class SpeechGeneratorWindow(QWidget):
         sample_rate = int(self.audio_rate_input.text())
         self.disableWidgets()
         self.led_widget.setGreen()
-        filename =  self.parameters['audios_path'] + '/audio_' + str(random.randint(0, 1e6)) + '.wav'
+        wav_name = str(random.randint(0, 1e6)) + '.wav'
+        filename =  self.parameters['audios_path'] + '/audio_' + wav_name
         record_audio_thread(audio_duration, filename)
         self.timer = QTimer(self)
         self.timer.setSingleShot(True)
         self.timer.timeout.connect(self.enableWidgets)
         self.timer.start(audio_duration)
-        self.last_audio = filename
+
         if self.transcribe_no_radio.isChecked(): 
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'No trancription found.',sample_rate, audio_duration)
+            save_dataset_csv_audio_text(self.parameters['metadata'],"Audios/"+wav_name, 'No trancription found.',sample_rate, audio_duration)
 
         else:
             self.console.append('Transcribing audio')                                              #TODO not yet done
             #text =whisper_translation(self.model,'en', filename)
-            save_dataset_csv_audio_text(self.parameters['metadata'],filename, 'transcribed',sample_rate, audio_duration)
+            save_dataset_csv_audio_text(self.parameters['metadata'],"Audios/"+wav_name, 'transcribed',sample_rate, audio_duration)
             self.console.append('Done')
 
 
@@ -194,7 +199,7 @@ class SpeechGeneratorWindow(QWidget):
     def updateModelDropdown(self, text):
         if text == "en":
             self.model_entry_dropdown.clear()
-            self.model_entry_dropdown.addItems(["medium.en", "small.en"])
+            self.model_entry_dropdown.addItems(["tiny.en","medium.en", "small.en"])
         else:
             self.model_entry_dropdown.clear()
             self.model_entry_dropdown.addItems(["large", "medium",'small'])
@@ -214,5 +219,13 @@ class SpeechGeneratorWindow(QWidget):
         self.new_window.show()
 
 
+    def printMessage(self):
+        self.console.append(f'Setting up model, please do not close while model is not loaded.')
+        model_option = self.model_entry_dropdown.currentText()
+        vad_option = self.vad_yes_radio.isChecked()
+        threading.Thread(target=self.load_translation_model, args=(model_option,)).start()
 
 
+    def load_translation_model(self, model_option):
+        self.model = load_translation_model(model_size=model_option)
+        self.console.append(f'Model loaded: {model_option}')

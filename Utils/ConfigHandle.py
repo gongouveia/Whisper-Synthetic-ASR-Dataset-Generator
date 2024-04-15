@@ -8,7 +8,7 @@ def write_config_dictionary(args, gpu_avail = False):
                'window_theme': args.theme,
                 'GPU_avail': gpu_avail,
                 'project_path': 'Projects/' + args.project,
-                'audios_path': 'Projects/' + args.project + '/Audio',
+                'audios_path': 'Projects/' + args.project + '/Audios',
                 'text_path': 'Projects/' + args.project + '/Transcription',
                 'metadata': 'Projects/' + args.project + '/metadata.csv',
 

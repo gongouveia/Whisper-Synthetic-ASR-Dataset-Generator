@@ -13,7 +13,10 @@ def load_translation_model(model_size = 'tiny'):
 
 def whisper_translation(model,language, audio_file):
 	text = []
-	segments, info = model.transcribe(audio_file, language = language)
+	if language == 'en':
+		segments, info = model.transcribe(audio_file)
+	else:
+		segments, info = model.transcribe(audio_file, language = language)
 	for segment in segments:
 		text.append(segment.text)
 	print('translation done')
@@ -21,7 +24,7 @@ def whisper_translation(model,language, audio_file):
 
 
 def save_translation_to_txt(audio_file, text):
-	text_file = audio_file.replace('.wav', '.txt') .replace('/Audio','/Translations')
+	text_file = audio_file.replace('.wav', '.txt') .replace('/Audios','/Translations')
 	text_file = open(text_file, "w")
 	text_file.write(text)
 	text_file.close()
