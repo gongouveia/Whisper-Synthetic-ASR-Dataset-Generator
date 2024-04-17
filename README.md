@@ -2,11 +2,9 @@ Project under construction. First complete release early May 2024 🚧👷‍♂
 
 ## What is missing now:
 
-🟡 Some OS do not find dark mode template of pyqtdarktheme.
+🟡 In some OS dark theme template of pyqtdarktheme is not found.
 
 🟡 Audio capture mistake (first 0.2 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior).
-
-🔴 Transcriptions disabled, for DEBUG purposes. (contact me if you need a working version)
 
 🔴 HF export not complete ´, including HF.
 
