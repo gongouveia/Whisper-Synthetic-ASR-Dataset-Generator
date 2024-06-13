@@ -1,4 +1,4 @@
-Project under construction. First complete release early May 2024 🚧👷‍♂️
+Project under construction. 🚧👷‍♂️
 
 ## What is missing now:
 
