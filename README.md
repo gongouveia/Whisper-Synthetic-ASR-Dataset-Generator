@@ -17,7 +17,7 @@ User interface is created using PyQt5 and runs totally on local machine.
 
 ## Overview
 This application serves as a Synthetic Speech Generator, enabling users to transcribe captured audio and manage generated datasets. It provides a user-friendly interface for configuring audio parameters, transcription options, and dataset management.
-![progview](https://github.com/gongouveia/Synthetic-Speech-Dataset-Generator-Powered-by-Whisper-Train-Whisper/assets/68733294/eeda9460-029b-4a9a-bfa7-176086313f11)
+![Screenshot 2024-06-16 223519](https://github.com/gongouveia/Whisper-Temple-Synthetic-ASR-Dataset-Generator/assets/68733294/24d41a0c-3592-4a0d-8c0d-61aa1aac83c1)
 
 ## Features
 - **Audio Capture**: Users can capture audio samples with customizable settings such as sample rate and duration.
