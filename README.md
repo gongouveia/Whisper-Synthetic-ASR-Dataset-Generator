@@ -6,7 +6,7 @@ Project under construction. 🚧👷‍♂️
 
 🟡 Audio capture mistake (first 0.2 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior).
 
-🔴 HF export not complete ´, including HF.
+🔴 HF dataset push to HF spaces to be implemented in the future.
 
 
 # Synthetic Speech Dataset Generator (SpeechGen)
