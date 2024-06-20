@@ -40,13 +40,14 @@ First, I suggest you create and activate a new virtual environment using `conda`
 3. Follow instruction in Usage Section.
 
 ## Usage
-1. Launch the application and create or continue a project by running `python speech_gen.py --project <project_name> --theme <default:'auto', 'light', 'dark'>,  `
-2. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
-3. If CUDA is found, it is possibel to transcribe audio records at the ed of each recording. Otherwise, yo can batch transcribe the audios in the DatasetViewer..
-4. Choose whether to use VAD option in transcripion or not, default is enabled and allows for a faster trancription.
-5. Click on "Capture Audio" to start a new audio recording.
-6. View and manage Audio dataset using provided menu options.
-7. Edit weak Transcriptions, creating a even more robust training dataset for Whisper.
+1. Launch the application and create or continue a project by running `python temple.py --project <default:Project> --theme <default:'auto', 'light', 'dark'>,  `
+2. Export the audio Dataset project to HuggingFace using `python export.py --project <default:Project> --language <default:'eu'>....., ` For more info. see `python export.py --help `
+3. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
+4. If CUDA is found, it is possibel to transcribe audio records at the ed of each recording. Otherwise, yo can batch transcribe the audios in the DatasetViewer..
+5. Choose whether to use VAD option in transcripion or not, default is enabled and allows for a faster trancription.
+6. Click on "Capture Audio" to start a new audio recording.
+7. View and manage Audio dataset using provided menu options.
+8. Edit weak Transcriptions, creating a even more robust training dataset for Whisper.
 # Notes
 If the Idiom argument is set to ('en'), the languages dropdown menu is not available. 
 If option 3 is disabled, it is possible to transcribe all the captured audios in the dataset viewer window. You can add audios to the Audio dataset by pasting them in the `/Audios` folder under your desired project.
