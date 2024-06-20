@@ -1,4 +1,4 @@
-Project under construction. 🚧👷‍♂️
+Project is working. Minor bugs (under construction. 🚧👷‍♂️)
 
 ## What is missing now:
 
