@@ -9,9 +9,9 @@ def write_config_dictionary(args, gpu_avail = False):
                 'GPU_avail': gpu_avail,
                 'project_path': 'Projects/' + args.project,
                 'audios_path': 'Projects/' + args.project + '/Audios',
-                'text_path': 'Projects/' + args.project + '/Transcription',
+                'text_path': 'Projects/' + args.project + '/Translations',
+                'HFmodel_path': 'Projects/' + args.project + '/HFmodel',
                 'metadata': 'Projects/' + args.project + '/metadata.csv',
-
                }
     write_dict_to_json(configs)
 
@@ -27,6 +27,8 @@ def read_parameters_from_json(json_file_path= 'config.json'):
     with open(json_file_path, 'r') as file:
         parameters = json.load(file)
     return parameters
+
+
 
 
 

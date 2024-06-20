@@ -1,9 +1,10 @@
 {
     "project_name": "Project",
     "window_theme": "light",
-    "GPU_avail": false,
+    "GPU_avail": true,
     "project_path": "Projects/Project",
     "audios_path": "Projects/Project/Audios",
-    "text_path": "Projects/Project/Transcription",
+    "text_path": "Projects/Project/Translations",
+    "HFmodel_path": "Projects/Project/HFmodel",
     "metadata": "Projects/Project/metadata.csv"
 }

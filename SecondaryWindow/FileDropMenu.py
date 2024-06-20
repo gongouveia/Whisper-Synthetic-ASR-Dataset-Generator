@@ -69,7 +69,7 @@ class FileDropWidget(QWidget):
                         self.output_textedit.append(f"File: {destination_path}, Length: {duration:.2f} seconds, Sample Rate: {rate} Hz")
 
                     text_file = open(self.metadata_file, "a")  #name defined by hf Audio Datasets, kind adoing it now
-                    text_file.write(f"{'Audio/' + os.path.basename(file)},{'Not translated: Coming from file drop.'},{int(rate)}, {int(duration)*1000}\n")
+                    text_file.write(f"{'Audios/' + os.path.basename(file)},{'Not translated: Coming from file drop.'},{int(rate)}, {int(duration)*1000}\n")
                     text_file.close()
 
                     

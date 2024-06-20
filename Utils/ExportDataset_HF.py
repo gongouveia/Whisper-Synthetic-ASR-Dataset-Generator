@@ -18,12 +18,10 @@ def dataset_validator(csv_path):                                             #TO
     try:
         with open(csv_path) as f:
             data = list(csv.reader(f))
-        print("rows:", len(data))
-        print("columns:", len(data[0]))
-        return 1
+        print('metadata found')
+
     except:
         print('Dataframe format invalid, path does not exist')       
-        return None
 
 
 def create_hf_dataset(data_folder_path = "HuggingFaceDataset/",
@@ -69,8 +67,8 @@ def laod_model_from_disk(hf_dataset_name):           #DEBUG purpose, TESTED
         return None
 
 
-dataset = load_dataset("audiofolder", data_dir=r"C:\Users\Alguém\Desktop\WhisperSpeech\Projects\Project\Audio")
-print(dataset['train'])
+# dataset = load_dataset("audiofolder", data_dir=r"C:\Users\Alguém\Desktop\WhisperSpeech\Projects\Project\Audio")
+# print(dataset['train'])
 
 # create_hf_dataset(data_folder_path = r"Projects/Project/Audio",
 #                       dataset_name = 'hf_audio_dataset.hf',

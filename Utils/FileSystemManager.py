@@ -39,18 +39,19 @@ def create_new_project(project_name):
         os.makedirs(path_name )
         os.makedirs(path_name + '/Audios/' )
         os.makedirs(path_name + '/Translations/')
+        os.makedirs(path_name + '/HFmodel/')
         create_metadata_file(path_name +'/metadata.csv')
         return True
     return False
 
 
-def delete_files_in_folder(folder_path):
-    # Delete all files in the folder
-    for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
-        try:
-            if os.path.isfile(file_path):
-                os.remove(file_path)
-                print(f"File {file_path} deleted successfully.")
-        except Exception as e:
-            print(f"Failed to delete {file_path}: {e}")
+
+def delete_all_files_in_folder(directory_path):
+    if not os.path.isdir(directory_path):
+        print(f"The provided path '{directory_path}' is not a valid directory.")
+        return
+
+    for filename in os.listdir(directory_path):
+        file_path = os.path.join(directory_path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)

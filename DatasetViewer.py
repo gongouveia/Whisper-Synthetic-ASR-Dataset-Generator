@@ -44,9 +44,9 @@ class DataWindow(QWidget):
         self.transcribe_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  
 
         self.extra_button = QPushButton("Export to Huggingface")
-        self.extra_button.clicked.connect(self.showMessage)
+        self.extra_button.clicked.connect(self.openExportWindow)
         self.extra_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)  
-        self.extra_button.setEnabled(False)  # Disable the button initially
+        self.extra_button.setEnabled(True)  # Enable the button
 
         self.delete_button.setFixedWidth(100)
         self.save_button.setFixedWidth(150)
@@ -141,17 +141,14 @@ class DataWindow(QWidget):
 
     def transcribeRemainingFiles(self):
         parameters = read_parameters_from_json('config.json')
-        audio_path =parameters['audios_path']
+        audio_path = parameters['audios_path']
         transcribed_files = self.find_files_to_transcribe()
         self.terminal.append("Transcribing Remaining files. Transcriptions will be saved automatically at each file iteration.")
         self.terminal.append("Transcribed Files:")
         for file in transcribed_files:
             print(file)
 
-
-
-            text = whisper_translation(self.transcriber, 'en', audio_path +'/'+ file)                                                                                    #TODO
-
+            text = whisper_translation(self.transcriber, 'en', audio_path +'/'+ file[6:])                                                                                    #TODO
 
             # Set 'Transcribed' in the second column of the current row                                                                                                #transcribe Here
             for row in range(self.model.rowCount()):
@@ -163,19 +160,19 @@ class DataWindow(QWidget):
             self.saveCSV()
         QMessageBox.information(self, "Save Changes", "Changes saved successfully!")
 
-
-
     def find_files_to_transcribe(self):
         transcribed_files = []
         for row in range(self.model.rowCount()):
             transcription = self.model.item(row, 1).text().strip()
-            if transcription in ['No trancription found.',"Not translated: Coming from file drop."]:                    #this is the cases in which
+            if transcription in ['No transcription found.',"Not translated: Coming from file drop."]:                    #this is the cases in which
                 file_path = self.model.item(row, 0).text()
                 transcribed_files.append(file_path)
         return transcribed_files
 
-    def showMessage(self):
-        QMessageBox.information(self, "Information", "You clicked the extra button!")
+    def openExportWindow(self):
+        self.export_window = ExportWindow()
+        self.export_window.show()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
