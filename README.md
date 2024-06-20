@@ -34,7 +34,7 @@ ReadMe update with UI screenshot and video
 First, I suggest you create and activate a new virtual environment using `conda` or `virtenv`. Then follow steps ⬇️
 1. Clone the repository:
     ```bash
-    https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
+    git clone  https://github.com/gongouveia/Syntehtic-Speech-Dataset-Generator.git
     ```
 2. Install dependencies in req.yml `conda env create -f req.yml`
 3. Follow instruction in Usage Section.
