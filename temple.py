@@ -40,7 +40,7 @@ def main():
     else:
         print('Project found. Continue and Visualize Dataset.\n')
 
-    write_config_dictionary(vars(args), torch.cuda.is_available())
+    write_config_dictionary(args, torch.cuda.is_available())
 
     qdarktheme.enable_hi_dpi()
     app = QApplication(sys.argv)
