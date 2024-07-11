@@ -9,7 +9,7 @@ Project is working. Minor bugs (under construction. 🚧👷‍♂️)
 🔴 HF dataset push to HF spaces to be implemented in the future.
 
 
-# Synthetic Speech Dataset Generator (SpeechGen)
+# Synthetic Speech Dataset Generator 
 
 With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. <Whisper Temple delves creates a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
 User interface is created using PyQt5 and runs totally on local machine.
@@ -41,7 +41,7 @@ First, I suggest you create and activate a new virtual environment using `conda`
 
 ## Usage
 1. Launch the application and create or continue a project by running `python temple.py --project <default:Project> --theme <default:'auto', 'light', 'dark'>,  `
-2. Export the audio Dataset project to HuggingFace using `python export.py --project <default:Project> --language <default:'eu'>....., ` For more info. see `python export.py --help `
+    OR Export the audio Dataset project to HuggingFace using `python export.py --project <default:Project> --language <default:'eu'>....., ` For more info. see `python export.py --help `
 3. Configure audio capture parameters such as sample rate in KHz `default: 16000` and duration in milliseconds `default: 5000`.
 4. If CUDA is found, it is possibel to transcribe audio records at the ed of each recording. Otherwise, yo can batch transcribe the audios in the DatasetViewer..
 5. Choose whether to use VAD option in transcripion or not, default is enabled and allows for a faster trancription.
