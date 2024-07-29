@@ -1,12 +1,8 @@
 Project is working. Minor bugs (under construction. 🚧👷‍♂️)
 
-## What is missing now:
+## Exsting samll bugs:
 
 🟡 In some OS dark theme template of pyqtdarktheme is not found.
-
-🟡 Audio capture mistake (first 0.2 seconds are corrupted, I believe it is due to audio driver latency or python multithread erratic behavior).
-
-🔴 HF dataset push to HF spaces to be implemented in the future.
 
 
 # Synthetic Speech Dataset Generator 
