@@ -1,6 +1,6 @@
 Project is working. Minor bugs (under construction. 🚧👷‍♂️)
 
-## Exsting samll bugs:
+## Exsting small bugs:
 
 🟡 In some OS dark theme template of pyqtdarktheme is not found.
 
