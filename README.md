@@ -59,6 +59,7 @@ If option 3 is disabled, it is possible to transcribe all the captured audios in
 - **Refresh Dataset**: Refreshes dataset, use if changed metadata.csv.
 - **Delete Entry**: Deletes the last recorded entry from the dataset.
 
+Right now there is no support for .mp3 files, however you can batch conver .mp3 flies and .flac files to .wav using ffmpeg batch conversion as in [https://ottverse.com/convert-all-files-inside-folder-ffmpeg-batch-convert/]
 
 ## Exporting Dataset as Hugging Face Audio Dataset
 To export the final dataset as a Hugging Face 🤗 Datasets, use the Command-Line Interface (CLI) provided.
