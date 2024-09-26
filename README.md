@@ -1,9 +1,3 @@
-Project is working. Minor bugs (under construction. 🚧👷‍♂️)
-
-## Exsting small bugs:
-
-🟡 In some OS dark theme template of pyqtdarktheme is not found.
-
 
 # Synthetic Speech Dataset Generator 
 
@@ -25,6 +19,11 @@ This application serves as a Synthetic Speech Generator, enabling users to trans
 ## Future Releases
 Adding metadata to each dataset entry, audio sample rate, length, or speaker gender and age.
 ReadMe update with UI screenshot and video
+
+### Exsting small bugs:
+
+🟡 In some OS dark theme template of pyqtdarktheme is not found.
+
 
 ## Installation  (Experimenta. Not yet complete; will do Pypi and conda install)
 First, I suggest you create and activate a new virtual environment using `conda` or `virtenv`. Then follow steps ⬇️
