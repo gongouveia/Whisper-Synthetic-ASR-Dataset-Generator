@@ -1,6 +1,7 @@
+👷 Soon to implement Whisper Turbo for Audio-Text pairs Synthesization.
+Optimized version of Whisper large-v3), faster inference, same WER and CER. Better than the current faster-whisper.
 
 # Synthetic Speech Dataset Generator 
-
 With the rising number of ASR/NLP open source projects democratizing the AI human-machine interface comes with the necessity of getting better ASR datasets. <Whisper Temple delves creates a simple-to-use platform to create Synthetic speech datasets, creating pairs of audio and text. Translation powered by faster-whisper ⏩ Synthetic translations can be edited in UI Data viewer. 
 User interface is created using PyQt5 and runs totally on local machine.
 
