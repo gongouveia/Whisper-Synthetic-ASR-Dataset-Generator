@@ -163,7 +163,7 @@ class SpeechGeneratorWindow(QWidget):
             save_dataset_csv_audio_text(self.parameters['metadata'],"Audios/"+wav_name, 'No trancription found.',sample_rate, audio_duration)
 
         else:
-            self.console.append('Transcribing audio')                                              #TODO not yet done
+            self.console.append('Transcribing audio')                                              
             #text =whisper_translation(self.model,'en', filename)
             save_dataset_csv_audio_text(self.parameters['metadata'],"Audios/"+wav_name, 'transcribed',sample_rate, audio_duration)
             self.console.append('Done')
@@ -202,7 +202,7 @@ class SpeechGeneratorWindow(QWidget):
             self.model_entry_dropdown.addItems(["tiny.en","medium.en", "small.en"])
         else:
             self.model_entry_dropdown.clear()
-            self.model_entry_dropdown.addItems(["large", "medium",'small'])
+            self.model_entry_dropdown.addItems(["distil-large-v3","large", "medium",'small'])
 
     def openDataWindow(self):
         metadata = self.parameters['metadata']
